@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <Button>sample</Button>
   </div>
 </template>
 
 <script>
-import { ItemsRepository } from '@/repository'
+// import { ItemsRepository } from '@/repository'
 
 export default {
   async created() {
-    const res = await ItemsRepository.getItems()
-    console.log(res)
+    // const res = await ItemsRepository.getItems()
+    // console.log(res)
   }  
 }
 </script>
