@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const baseURL = process.env.VUE_APP_API_BASE_URL
-const timeout = 1000
+const timeout = 10000
 const headers = {
   'Content-Type': 'application/json',
 }
