@@ -9,6 +9,6 @@
 export default {
   components: {
     Detail: () => import('@/components/Detail/index.vue'),
-  }
+  },
 }
 </script>

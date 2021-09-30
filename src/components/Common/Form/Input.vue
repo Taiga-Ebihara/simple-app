@@ -4,7 +4,7 @@
     v-model="inputValue"
     class="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md outline-none hover:border-gray-400 active:border-gray-500"
     :style="`width: ${width}px;`"
-  >
+  />
 </template>
 
 <script>
@@ -20,8 +20,8 @@ export default {
       },
       set(newValue) {
         this.$emit('input', newValue)
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
