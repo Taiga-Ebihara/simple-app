@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "core-js": "^3.6.5",
+    "github-markdown-css": "^4.0.0",
     "marked": "^3.0.4",
     "remove-markdown": "^0.3.0",
     "vue": "^2.6.11",

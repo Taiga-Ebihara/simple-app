@@ -2,8 +2,8 @@
   <div>
     <div class="flex justify-center">
       <div class="flex items-center mt-8">
-        <Input />
-        <Button class="ml-4" :is-loading="false">search</Button>
+        <Input v-model="searchText" />
+        <Button class="ml-4" :is-loading="false" @click="doSearch">search</Button>
       </div>
     </div>
     <div class="flex justify-center mt-8">
@@ -35,26 +35,28 @@ export default {
     cutLength(text, length) {
       return text.length > length
         ? text.slice(0, length) + '...'
-        : text 
+        : text
     }
   },
   data() {
     return {
-      items: sampleData
+      items: sampleData,
+      searchText: '',
     }
   },
   created() {
     //
   },
   methods: {
-    async getItems() {
-      const res = await ItemsRepository.getItems()
-      console.log(res)
-      this.items = res.data
+    async doSearch() {
+      const params = {
+        query: `title:${this.searchText}`
+      }
+      this.items = await this.getItems(params)
     },
-    async getSingleItem() {
-      const res = await ItemsRepository.getSingleItem('70ab4e8e145318e72bd2')
-      console.log(res)
+    async getItems(params = {}) {
+      const res = await ItemsRepository.getItems(params)
+      return res.data
     }
   }
 }

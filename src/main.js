@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import '@/assets/css/tailwind.css'
 import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store'
 import '@/utils/components'
+import '@/assets/css/tailwind.css'
+import 'github-markdown-css'
 
 Vue.config.productionTip = false
 
