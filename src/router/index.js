@@ -11,5 +11,10 @@ export default new Router({
       name: 'home',
       component: () => import('@/pages/home/index.vue'),
     },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: () => import('@/pages/detail/index.vue'),
+    },
   ],
 })

@@ -8,4 +8,7 @@ export default {
       params: { ...params },
     })
   },
+  getSingleItem: (item_id) => {
+    return Axios.get(`${resourse}/${item_id}`)
+  }
 }

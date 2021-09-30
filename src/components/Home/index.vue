@@ -2,13 +2,13 @@
   <div>
     <div class="flex justify-center">
       <div class="flex items-center mt-8">
-        <Input />
-        <Button class="ml-4" :is-loading="false">search</Button>
+        <Input v-model="searchText" />
+        <Button class="ml-4" :is-loading="false" @click="doSearch">search</Button>
       </div>
     </div>
     <div class="flex justify-center mt-8">
       <List>
-        <ListItemAction v-for="item in items" :key="item.id">
+        <ListItemAction v-for="item in items" :key="item.id" @click="$router.push(`/detail/${item.id}`)">
           <ListItem>
             <ListItemAvator :url="item.user.profile_image_url" />
             <ListItemContent>
@@ -19,9 +19,6 @@
         </ListItemAction>
       </List>
     </div>
-    <footer class="flex justify-center items-center my-8">
-      <p>2021 — <span class="text-lg font-bold">Conviction</span></p>
-    </footer>
   </div>
 </template>
 
@@ -38,22 +35,28 @@ export default {
     cutLength(text, length) {
       return text.length > length
         ? text.slice(0, length) + '...'
-        : text 
+        : text
     }
   },
   data() {
     return {
-      items: sampleData
+      items: sampleData,
+      searchText: '',
     }
   },
   created() {
-    // 
+    //
   },
   methods: {
-    async getItems() {
-      const res = await ItemsRepository.getItems()
-      console.log(res)
-      this.items = res.data
+    async doSearch() {
+      const params = {
+        query: `title:${this.searchText}`
+      }
+      this.items = await this.getItems(params)
+    },
+    async getItems(params = {}) {
+      const res = await ItemsRepository.getItems(params)
+      return res.data
     }
   }
 }
