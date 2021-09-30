@@ -8,7 +8,7 @@
     </div>
     <div class="flex justify-center mt-8">
       <List>
-        <ListItemAction v-for="item in items" :key="item.id">
+        <ListItemAction v-for="item in items" :key="item.id" @click="$router.push(`/detail/${item.id}`)">
           <ListItem>
             <ListItemAvator :url="item.user.profile_image_url" />
             <ListItemContent>
@@ -19,9 +19,6 @@
         </ListItemAction>
       </List>
     </div>
-    <footer class="flex justify-center items-center my-8">
-      <p>2021 — <span class="text-lg font-bold">Conviction</span></p>
-    </footer>
   </div>
 </template>
 
@@ -47,13 +44,17 @@ export default {
     }
   },
   created() {
-    // 
+    //
   },
   methods: {
     async getItems() {
       const res = await ItemsRepository.getItems()
       console.log(res)
       this.items = res.data
+    },
+    async getSingleItem() {
+      const res = await ItemsRepository.getSingleItem('70ab4e8e145318e72bd2')
+      console.log(res)
     }
   }
 }
