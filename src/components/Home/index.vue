@@ -8,13 +8,15 @@
     </div>
     <div class="flex justify-center mt-8">
       <List>
-        <ListItem v-for="item in items" :key="item.id">
-          <ListItemAvator :url="item.user.profile_image_url" />
-          <ListItemContent>
-            <ListItemTitle>{{ item.title }}</ListItemTitle>
-            <ListItemSubtitle>{{ item.body | removeMarkdown | cutLength(100) }}</ListItemSubtitle>
-          </ListItemContent>
-        </ListItem>
+        <ListItemAction v-for="item in items" :key="item.id">
+          <ListItem>
+            <ListItemAvator :url="item.user.profile_image_url" />
+            <ListItemContent>
+              <ListItemTitle>{{ item.title }}</ListItemTitle>
+              <ListItemSubtitle>{{ item.body | removeMarkdown | cutLength(100) }}</ListItemSubtitle>
+            </ListItemContent>
+          </ListItem>
+        </ListItemAction>
       </List>
     </div>
     <footer class="flex justify-center items-center my-8">
