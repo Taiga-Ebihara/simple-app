@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center py-4 px-8 border-b last:border-0" :style="`width: ${width}px;`">
+  <div class="flex items-center py-4 px-8 border-gray-300 border-b last:border-0" :style="`width: ${width}px;`">
     <slot />
   </div>
 </template>

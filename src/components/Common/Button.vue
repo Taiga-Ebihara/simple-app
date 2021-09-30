@@ -4,6 +4,7 @@
     :class="{
       'text-transparent pointer-events-none': isLoading,
     }"
+    @click="$emit('click')"
   >
     <slot />
     <span v-if="isLoading" class="loading absolute h-4 w-4 border-2 border-gray-300 rounded-full animate-spin" />

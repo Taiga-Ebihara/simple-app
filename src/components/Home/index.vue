@@ -24,7 +24,7 @@
 </template>
 
 <script>
-// import { ItemsRepository } from '@/repository'
+import { ItemsRepository } from '@/repository'
 import sampleData from './sample-data.js'
 import removeMd from 'remove-markdown'
 
@@ -44,9 +44,15 @@ export default {
       items: sampleData
     }
   },
-  async created() {
-    // const res = await ItemsRepository.getItems()
-    // console.log(res)
+  created() {
+    // 
   },
+  methods: {
+    async getItems() {
+      const res = await ItemsRepository.getItems()
+      console.log(res)
+      this.items = res.data
+    }
+  }
 }
 </script>

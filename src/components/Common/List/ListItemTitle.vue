@@ -1,5 +1,5 @@
 <template>
-  <div class="text-lg font-bold">
+  <div class="pb-2 text-lg font-bold">
     <slot />
   </div>
 </template>
